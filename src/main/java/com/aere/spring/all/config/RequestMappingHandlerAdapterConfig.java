@@ -1,5 +1,7 @@
-package com.aere.spring.all.restful.endpoints;
+package com.aere.spring.all.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
@@ -8,13 +10,16 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
  * Created by AereXu on 2016/4/17.
  */
 @Configuration
-public class messageConverters extends RequestMappingHandlerAdapter {
+public class RequestMappingHandlerAdapterConfig{
 
-    private static MappingJackson2HttpMessageConverter json2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
+    @Autowired
+    RequestMappingHandlerAdapter  requestMappingHandlerAdapter;
 
-    public messageConverters(){
-        super();
-        super.getMessageConverters().add(json2HttpMessageConverter); // Fix get application/json will response 406
+    @Bean
+    public MappingJackson2HttpMessageConverter jsonConverter(){ // Fix get application/json will response 406
+        MappingJackson2HttpMessageConverter json2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
+        requestMappingHandlerAdapter.getMessageConverters().add(json2HttpMessageConverter);
+        return json2HttpMessageConverter;
     }
 
 }
