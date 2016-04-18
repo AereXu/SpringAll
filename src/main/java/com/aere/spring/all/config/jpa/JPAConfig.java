@@ -1,6 +1,6 @@
 package com.aere.spring.all.config.jpa;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
+//import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -15,9 +15,9 @@ import javax.sql.DataSource;
 @PropertySource(value = {"classpath:/application.properties",
         "file:/C:\\Users\\AereXu\\OneDrive\\Workplace\\config\\SpringAll\\daasource.properties"},
         ignoreResourceNotFound = true)
-public class PersistenceJPAConfig {
+public class JPAConfig {
     @Bean
-    @ConfigurationProperties(prefix = "spring.datasource")
+//    @ConfigurationProperties(prefix = "spring.datasource")
 //    @ConfigurationProperties
     public DataSource dataSource() {
         return new DriverManagerDataSource();
