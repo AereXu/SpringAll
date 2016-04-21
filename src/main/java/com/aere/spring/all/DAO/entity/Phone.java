@@ -16,8 +16,9 @@ import java.util.Date;
 @Entity
 public class Phone implements Serializable{
     @Id
-    @SequenceGenerator(name = "SEQ_MDFUP_CONTENT_ID", sequenceName = "SEQ_MDFUP_CONTENT_ID", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_MDFUP_CONTENT_ID")
+//    @SequenceGenerator(name = "SEQ_MDFUP_CONTENT_ID", sequenceName = "SEQ_MDFUP_CONTENT_ID", allocationSize = 1)
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_MDFUP_CONTENT_ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column

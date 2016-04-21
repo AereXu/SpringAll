@@ -1,9 +1,6 @@
 package com.aere.spring.all.config;
 
-import com.aere.spring.all.config.jpa.JPAConfig;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.WebApplicationInitializer;
-import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
@@ -37,7 +34,7 @@ public class WebInitializer implements WebApplicationInitializer {
     public void onStartup(ServletContext container) throws ServletException {
 
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-        rootContext.register(WebConfig.class);
+        rootContext.register(WebConfig.class, JPAConfig.class);
         rootContext.setServletContext(container);
 
         // Manage the lifecycle of the root application context
